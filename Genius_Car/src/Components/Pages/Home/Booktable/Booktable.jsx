@@ -49,6 +49,10 @@ const Booktable = (props) => {
         </th>
         <td>{propsdata.date}</td>
         <td>{propsdata.price}</td>
+        {
+          propsdata.status==="confrim"?<td>Confrimed</td>:<td><button className='btn btn-outline-primary'onClick={()=>props.handleupdate(propsdata._id)}>Please Confrim</button></td>
+
+        }
       </tr>
      
 
