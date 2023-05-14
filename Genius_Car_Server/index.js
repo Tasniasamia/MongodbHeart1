@@ -47,6 +47,24 @@ async function run() {
         const result = await booking.insertOne(data);
         res.send(result);
     })
+    app.patch('/booking/:id',async(req,res)=>{
+      const id=req.params.id;
+      const databook=req.body;
+      console.log(databook);
+      const query={_id:new ObjectId(id)};
+      const updateDoc = {
+
+        $set: {
+  
+         status:databook.status
+  
+        },
+  
+      };
+  
+      const result = await booking.updateOne(query, updateDoc);
+      res.send(result);
+    })
     app.get('/booking',async(req,res)=>{
         console.log(req.query.email);
         let query={};
